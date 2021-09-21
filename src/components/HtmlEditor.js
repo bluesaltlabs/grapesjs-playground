@@ -2,9 +2,15 @@ import React, { useEffect } from 'react'
 
 import grapesjs from 'grapesjs'
 //import '@grapesjs-preset-bluesaltlabs'
+import '../grapesjs-preset-bluesaltlabs'
 
-import storageManager from './storageManager'
-import assetManager from './assetManager'
+// Constants
+import {
+  EDITOR_CONTAINER_ID,
+} from '../constants'
+
+//import storageManager from '../storageManager'
+//import assetManager from '../assetManager'
 
 // Contexts and Context reducer constants
 import {
@@ -13,39 +19,9 @@ import {
   htmlEditorReducer,
   htmlEditorInitialState,
   INITIALIZE_EDITOR,
-} from './contexts'
+} from '../contexts'
 
-// export function getMountPointAttribute(attributeKey, defaultValue = null) {
-//   //const mountPoint = document.getElementById(MOUNT_POINT_ID); // todo: doesn't work for whatever reason...
-//   const mountPoint = document.getElementById('html-editor-app');
-
-//   if(mountPoint && mountPoint.dataset && mountPoint.dataset.hasOwnProperty(attributeKey)) {
-//     return mountPoint.dataset[attributeKey]
-//   }
-
-//   return defaultValue
-// }
-
-// export function getContentSlug() {
-//   return getMountPointAttribute('contentSlug', '')
-// }
-
-// export function getContentID() {
-//   return parseInt(getMountPointAttribute('contentId', 0))
-// }
-
-// export function getFromElement() {
-//   return parseInt( getMountPointAttribute('fromElement', 0) ) > 0
-// }
-
-// export function getDomain() {
-//   return getMountPointAttribute('domain', '')
-// }
-
-
-export function htmlEditor() {
-  console.debug(config)
-  const { domain } = config
+export function htmlEditor(config) {
   const canvas = {
       //scripts: [ '/js/public.js' ],
       //styles: [ '/css/public.css' ],
@@ -60,12 +36,12 @@ export function htmlEditor() {
     showOffsets: true,
     fromElement: true,
     noticeOnUnload: true,
-    storageManager: storageManager,
-    assetManager: assetManager,
+    //storageManager: storageManager,
+    //assetManager: assetManager,
     //plugins: ['grapesjs-preset-bluesaltlabs'],
-    pluginsOpts: {
-      'grapesjs-preset-bluesaltlabs': {}
-    },
+    //pluginsOpts: {
+    //  'grapesjs-preset-bluesaltlabs': {}
+    //},
   }
 
   const mergedConfig = Object.assign({}, defaultConfig, config)
@@ -77,14 +53,13 @@ export function htmlEditor() {
 
 
 export function createHtmlEditorComponent(settings, HtmlEditorComponent = null) {
-  const { contentSlug, contentId, fromElement, domain } = settings
+  const { contentSlug, contentId, fromElement } = settings
 
   const initialState = {
     ...htmlEditorInitialState,
     contentID: parseInt(contentId),
     contentSlug: contentSlug,
     fromElement: parseInt(fromElement) > 0,
-    domain: domain,
   }
 
   return () => (
@@ -98,17 +73,11 @@ export function createHtmlEditorComponent(settings, HtmlEditorComponent = null) 
 }
 
 export function ReactHtmlEditor() {
-  const [{ editor, fromElement, domain }, htmlEditorDispatch ] = useHtmlEditorStateValue()
+  const [{ fromElement }, htmlEditorDispatch ] = useHtmlEditorStateValue()
 
   useEffect(() => {
     const editorConfig = {
-      fromElement: fromElement,
-      domain: domain,
-      //height: '100%',
-      //showOffsets: 1,
-      //noticeOnUnload: 0,
-      //storageManager: { autoload: 0 },
-      //container: '#gjs',
+      fromElement: fromElement
     }
 
     // Initialize the editor
@@ -119,7 +88,7 @@ export function ReactHtmlEditor() {
 
   }, [])
 
-  return <div id="html-editor" />
+  return <div id={EDITOR_CONTAINER_ID} />
 }
 
-const HtmlEditorApp = createHtmlEditorComponent({}, ReactHtmlEditor)
+export const HtmlEditorApp = createHtmlEditorComponent({}, ReactHtmlEditor)

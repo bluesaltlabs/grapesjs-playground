@@ -3,9 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "description": "Testing and Development for GrapesJS Implementation",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "bootstrap": "^5.1.1",
+    "grapesjs": "^0.17.25",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "sass": "^1.42.0",
+    "sass-loader": "^10.2.0",
+    "web-vitals": "^1.1.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "repository": {
@@ -29,14 +43,9 @@
   "homepage": "https://github.com/bluesaltlabs/grapesjs-playground#readme",
   "eslintConfig": {
     "extends": [
-      "react-app"
+      "react-app",
+      "react-app/jest"
     ]
-  },
-  "dependencies": {
-    "grapesjs": "^0.17.25",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3"
   },
   "browserslist": {
     "production": [

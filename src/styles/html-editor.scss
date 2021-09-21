@@ -1,0 +1,98 @@
+//@import '~@fortawesome/fontawesome-free/scss/brands';
+//@import '~@fortawesome/fontawesome-free/scss/regular';
+//@import '~@fortawesome/fontawesome-free/scss/solid';
+//@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~bootstrap/scss/bootstrap-reboot.scss';
+@import 'variables';
+
+@import '~grapesjs/src/styles/scss/gjs_variables';
+@import '~grapesjs/dist/css/grapes.min.css';
+
+// Palette variables
+//$primaryColor: $admin-sidebar-bg;
+//$secondaryColor: $body-bg;
+//$tertiaryColor: $blue;
+//$quaternaryColor: $cyan;
+//$colorRed: $danger;
+
+//$primaryColor: #3503FF;
+//$secondaryColor: #025BFF;
+//$tertiaryColor: #9902FF;
+//$quaternaryColor: #FFCF00;
+//$colorRed: #FF0013;
+
+//https://colorhunt.co/palette/d4ecdd345b63152d35112031
+$primaryColor: #112031;
+$secondaryColor: #D4ECDD;
+$tertiaryColor: #2938dc;
+$quaternaryColor: #025BFF;
+
+//$tertiaryColor: #3503FF;
+//$quaternaryColor: #025BFF;
+//$colorRed: #FF0013;
+
+/* Class names prefixes */
+$app-prefix: 'gjs-';
+
+/* Override GrapesJS theme styles */
+$colorsAll:
+                (one, $primaryColor),
+                (two, $secondaryColor),
+                (three, $tertiaryColor),
+                (four, $quaternaryColor),
+                (danger, $colorRed)
+;
+
+.#{$app-prefix} {
+  @each $cnum, $ccol in $colorsAll {
+    &#{$cnum} {
+      &-bg {
+        background-color: $ccol;
+      }
+
+      &-color {
+        color: $ccol;
+
+        &-h:hover {
+          color: $ccol;
+        }
+      }
+    }
+  }
+}
+
+.#{$app-prefix}block.fa,
+.#{$app-prefix}block.fab,
+.#{$app-prefix}block.far,
+.#{$app-prefix}block.fas {
+  font-size: 2em;
+  line-height: 2em;
+  padding: 11px;
+}
+
+
+.#{$app-prefix}mdl-dialog {
+  max-width: 90vw;
+  max-height: 90vh;
+  .CodeMirror {
+    height: 75vh;
+  }
+}
+
+#html-code-editor__btn_save {
+  display: block;
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+// Old fontawesome class replacements for toolbar .... because there doesn't seem to be a way to modify these directly -_-
+.fa.fa-arrow-up { content: "\f062"; }
+.fa.fa-arrows:before { content: "\f0b2"; }
+.fa.fa-clone:before { content: "\f24d"; }
+.fa.fa-trash-o:before { content: "\f2ed"; }
+
+.#{$app-prefix}layer-caret.fa {
+  &.fa-chevron-right:before { content: "\f054"; }
+  &.fa-chevron-down:before,
+  &.fa-chevron-right.fa-chevron-down:before { content: "\f078"; }
+}

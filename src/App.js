@@ -1,8 +1,7 @@
 import React from 'react'
-import './App.css'
 
 import {
-  HtmlEditorApp,
+ HtmlEditorApp,
 } from './components'
 
 export function App() {

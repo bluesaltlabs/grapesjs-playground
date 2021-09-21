@@ -9,7 +9,6 @@ export const htmlEditorInitialState = {
   contentSlug: '',
   contentID: 0,
   fromElement: false,
-  domain: null,
 }
 
 // Reducer
