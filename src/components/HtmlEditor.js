@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 
 import grapesjs from 'grapesjs'
-//import '@grapesjs-preset-bluesaltlabs'
 import '../grapesjs-preset-bluesaltlabs'
 
 // Constants
@@ -38,7 +37,7 @@ export function htmlEditor(config) {
     noticeOnUnload: true,
     //storageManager: storageManager,
     //assetManager: assetManager,
-    //plugins: ['grapesjs-preset-bluesaltlabs'],
+    plugins: ['grapesjs-preset-bluesaltlabs'],
     //pluginsOpts: {
     //  'grapesjs-preset-bluesaltlabs': {}
     //},
@@ -85,7 +84,7 @@ export function ReactHtmlEditor() {
       type: INITIALIZE_EDITOR,
       editor: htmlEditor(editorConfig),
     })
-
+    // eslint-disable-next-line
   }, [])
 
   return <div id={EDITOR_CONTAINER_ID} />

@@ -1,8 +1,6 @@
 {
   "name": "grapesjs-playground",
   "version": "0.1.0",
-  "private": true,
-  "description": "Testing and Development for GrapesJS Implementation",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -22,25 +20,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bluesaltlabs/grapesjs-playground.git"
-  },
-  "keywords": [
-    "grapesjs",
-    "bluesaltlabs"
-  ],
-  "contributors": [
-    {
-      "name": "Luke Sontrop",
-      "email": "luke@bluesaltlabs.com"
-    }
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bluesaltlabs/grapesjs-playground/issues"
-  },
-  "homepage": "https://github.com/bluesaltlabs/grapesjs-playground#readme",
   "eslintConfig": {
     "extends": [
       "react-app",
