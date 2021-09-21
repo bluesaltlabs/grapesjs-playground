@@ -1,0 +1,4 @@
+[submodule "src/grapesjs-preset-bluesaltlabs"]
+	path = src/grapesjs.preset-bluesaltlabs
+	url = ssh://git@github.com:bluesaltlabs/grapesjs-preset-bluesaltlabs.git
+
