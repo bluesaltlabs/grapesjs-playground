@@ -4,7 +4,10 @@
   "description": "Testing and Development for GrapesJS Implementation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -14,10 +17,20 @@
     "grapesjs",
     "bluesaltlabs"
   ],
-  "author": "Luke Sontrop <luke@bluesaltlabs.com>",
+  "contributors": [
+    {
+      "name": "Luke Sontrop",
+      "email": "luke@bluesaltlabs.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bluesaltlabs/grapesjs-playground/issues"
   },
-  "homepage": "https://github.com/bluesaltlabs/grapesjs-playground#readme"
+  "homepage": "https://github.com/bluesaltlabs/grapesjs-playground#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
+  }
 }
