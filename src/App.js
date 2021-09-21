@@ -1,11 +1,16 @@
-import './App.css';
+import React from 'react'
+import './App.css'
 
-function App() {
+import {
+  HtmlEditorApp,
+} from './components'
+
+export function App() {
   return (
     <div className="App">
-      BlueSalt Labs - GrapesJS Playground
+      <HtmlEditorApp />
     </div>
   );
 }
 
-export default App;
+export default App

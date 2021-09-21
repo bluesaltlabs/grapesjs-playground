@@ -1,12 +1,11 @@
 {
   "name": "grapesjs-playground",
   "version": "0.1.0",
+  "private": true,
   "description": "Testing and Development for GrapesJS Implementation",
-  "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "repository": {
@@ -28,9 +27,27 @@
     "url": "https://github.com/bluesaltlabs/grapesjs-playground/issues"
   },
   "homepage": "https://github.com/bluesaltlabs/grapesjs-playground#readme",
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
   "dependencies": {
+    "grapesjs": "^0.17.25",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
