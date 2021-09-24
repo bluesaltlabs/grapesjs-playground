@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react'
+import 'grapesjs-component-code-editor/src/styles.scss'
+
+//grapesjs-component-code-editor
 
 import grapesjs from 'grapesjs'
-import '../grapesjs-preset-bluesaltlabs'
+import '../../grapesjs-preset-bluesaltlabs'
 
 // Constants
 import {
   EDITOR_CONTAINER_ID,
-} from '../constants'
+} from '../../constants'
 
 //import storageManager from '../storageManager'
 //import assetManager from '../assetManager'
@@ -18,7 +21,7 @@ import {
   htmlEditorReducer,
   htmlEditorInitialState,
   INITIALIZE_EDITOR,
-} from '../contexts'
+} from '../../contexts'
 
 export function htmlEditor(config) {
   const canvas = {
@@ -30,22 +33,27 @@ export function htmlEditor(config) {
     container: `#${EDITOR_CONTAINER_ID}`,
     showDevices: false,
     canvas: canvas,
-    height: '100vh',
-    width: '100vw',
+    height: '100%',
+    width: '100%',
     showOffsets: true,
     fromElement: true,
     noticeOnUnload: true,
     //storageManager: storageManager,
+    storageManager: false,
     //assetManager: assetManager,
-    plugins: ['grapesjs-preset-bluesaltlabs'],
+    plugins: [
+      'grapesjs-component-code-editor',
+      'grapesjs-preset-bluesaltlabs',
+    ],
     //pluginsOpts: {
     //  'grapesjs-preset-bluesaltlabs': {}
+    //  'grapesjs-component-code-editor': {}
     //},
   }
 
   const mergedConfig = Object.assign({}, defaultConfig, config)
 
-  console.debug(mergedConfig)
+  //console.debug(mergedConfig)
 
   return grapesjs.init(mergedConfig)
 }
@@ -87,7 +95,7 @@ export function ReactHtmlEditor() {
     // eslint-disable-next-line
   }, [])
 
-  return <div id={EDITOR_CONTAINER_ID} />
+  return <div id={EDITOR_CONTAINER_ID} className="ReactHtmlEditor" />
 }
 
 export const HtmlEditorApp = createHtmlEditorComponent({}, ReactHtmlEditor)
