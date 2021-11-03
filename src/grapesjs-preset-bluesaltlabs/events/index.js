@@ -1,3 +1,9 @@
+export * from './Storage'
+export * from './ChangesCount'
+export * from './Run'
+export * from './Stop'
+
+
 // Local Constants
 // import {
 //   CMD_STORE,
@@ -14,23 +20,22 @@
 //   EVENT_ASSET_UPLOAD_END,
 //   EVENT_ASSET_UPLOAD_ERROR,
 //   EVENT_ASSET_UPLOAD_RESPONSE,
+//   ICON_CLASS_STORING,
+//   ICON_CLASS_STORE_SUCCESS,
+//   ICON_CLASS_STORE_ERROR,
 // } from '../constants'
 
-// Icon Constants
-const ICON_CLASS_SAVE   = 'fas fa-save'
-const ICON_CLASS_SYNC   = 'fas fa-sync'
-const ICON_CLASS_ERROR  = 'fas fa-exclamation-triangle'
-
-const onHtmlCodeEditorCloseModal = (editor) => {
-  const panels = editor.Panels
+//const onHtmlCodeEditorCloseModal = (editor) => {
+//  const panels = editor.Panels
   //const htmlCodeEditorBtn = panels.getButton(PANEL_OPTIONS, CMD_HTML_CODE_EDITOR)
   //htmlCodeEditorBtn.set('active', 0)
-}
+//}
 
-// todo:
-export function loadEvents(editor, config) {
+// todo: load these like blocks and components instead
+//export function loadEvents(editor, config) {
 
   // debug: fire on all events
+  // todo: set config option in editor settings to enable/disable this event
   //editor.on(EVENT_RUN, commandId => {
   //  console.debug('Run:', commandId);
   //})
@@ -38,7 +43,7 @@ export function loadEvents(editor, config) {
   // editor.on(EVENT_STORAGE_START, commandID => {
   //   const panels = editor.Panels
   //   const storeBtn = panels.getButton(PANEL_OPTIONS, CMD_STORE)
-  //   storeBtn.set('className', ICON_CLASS_SYNC)
+  //   storeBtn.set('className', ICON_CLASS_STORING)
   //   storeBtn.set('disable', 1)
   //   storeBtn.set('active', 0)
   // })
@@ -46,7 +51,7 @@ export function loadEvents(editor, config) {
   // editor.on(EVENT_STORAGE_END, commandID => {
   //   const panels = editor.Panels
   //   const storeBtn = panels.getButton(PANEL_OPTIONS, CMD_STORE)
-  //   storeBtn.set('className', ICON_CLASS_SAVE)
+  //   storeBtn.set('className', ICON_CLASS_STORE_SUCCESS)
   //   storeBtn.set('disable', 1)
   //   storeBtn.set('active', 0)
   // })
@@ -54,13 +59,12 @@ export function loadEvents(editor, config) {
   // editor.on(EVENT_STORAGE_ERROR, commandID => {
   //   const panels = editor.Panels
   //   const storeBtn = panels.getButton(PANEL_OPTIONS, CMD_STORE)
-  //   storeBtn.set('className', ICON_CLASS_ERROR)
+  //   storeBtn.set('className', ICON_CLASS_STORE_ERROR)
   //   storeBtn.set('disable', 0)
   //   storeBtn.set('active', 0)
   // })
 
-  // editor.on(EVENT_HTML_CODE_EDITOR_CLOSE, commandID => onHtmlCodeEditorCloseModal(editor))
-  // editor.on(EVENT_HTML_CODE_EDITOR_SAVE, commandID => onHtmlCodeEditorCloseModal(editor))
+
 
   // source: https://github.com/artf/grapesjs/issues/551
   // editor.on(EVENT_CHANGES_COUNT, commandID => {
@@ -71,7 +75,7 @@ export function loadEvents(editor, config) {
   //     const panels = editor.Panels
   //     const storeBtn = panels.getButton(PANEL_OPTIONS, CMD_STORE)
   //
-  //     if(storeBtn.get('className') === ICON_CLASS_SAVE) {
+  //     if(storeBtn.get('className') === ICON_CLASS_STORE) {
   //       storeBtn.set('disable', 0)
   //     }
   //   }
@@ -99,4 +103,4 @@ export function loadEvents(editor, config) {
   })
 
   */
-}
+//}

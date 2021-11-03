@@ -13,21 +13,36 @@ import {
   CMD_CORE_REDO,
   CMD_PREVIEW,
   CMD_FULLSCREEN,
-  CMD_HTML_CODE_EDITOR,
   CMD_CANVAS_CLEAR,
-  CMD_OPEN_STYLE_MANAGER,
-  CMD_OPEN_TRAIT_MANAGER,
-  CMD_OPEN_LAYERS,
-  CMD_OPEN_BLOCKS,
+  CMD_CORE_OPEN_STYLES,
+  CMD_CORE_OPEN_TRAITS,
+  CMD_CORE_OPEN_LAYERS,
+  CMD_CORE_OPEN_BLOCKS,
   CMD_OPEN_CODE,
   CMD_SET_DEVICE_DESKTOP,
   CMD_SET_DEVICE_TABLET,
   CMD_SET_DEVICE_MOBILE,
   EVENT_LOAD,
   EVENT_COMPONENT_SELECTED,
+  ICON_CLASS_DEVICE_MOBILE,
+  ICON_CLASS_DEVICE_TABLET,
+  ICON_CLASS_DEVICE_DESKTOP,
+  ICON_CLASS_OPEN_CODE,
+  ICON_CLASS_OPEN_BLOCKS,
+  ICON_CLASS_OPEN_LAYERS,
+  ICON_CLASS_OPEN_TRAITS,
+  ICON_CLASS_OPEN_STYLES,
+  ICON_CLASS_CANVAS_CLEAR,
+  ICON_CLASS_REDO,
+  ICON_CLASS_UNDO,
+  ICON_CLASS_FULLSCREEN,
+  ICON_CLASS_PREVIEW,
+  ICON_CLASS_SWITCH_VISIBILITY,
+  ICON_CLASS_STORE,
 } from '../constants'
 
 // todo: go over this again and make sure there isn't anything in here we don't want.
+// todo: can this be made more modular?
 /**
  *
  * @param editor
@@ -41,7 +56,16 @@ export function loadPanels(editor, config) {
   panels.getPanels().reset([
     {
       id: PANEL_COMMANDS,
-      buttons: [{}],
+      buttons: [{}
+        // todo: title of current page, dropdown with button links?
+        //{
+        //  id: CMD_?,
+        //  command: CMD_?,
+        //  context: CMD_?,
+        //  className: ICON_CLASS_?,
+        //  attributes: { title: '' },
+        //},
+      ],
     },
     {
       id: PANEL_OPTIONS,
@@ -50,52 +74,46 @@ export function loadPanels(editor, config) {
           id: CMD_STORE,
           command: CMD_STORE,
           context: CMD_STORE,
-          className: 'fas fa-save',
+          className: ICON_CLASS_STORE,
           attributes: { title: 'Save' },
         },
         {
           id: CMD_SWITCH_VISIBILITY,
           command: CMD_SWITCH_VISIBILITY,
           context: CMD_SWITCH_VISIBILITY,
-          className: 'fas fa-border-none',
+          className: ICON_CLASS_SWITCH_VISIBILITY,
           attributes: { title: 'Show Components' },
         },
         {
           id: CMD_PREVIEW,
           context: CMD_PREVIEW,
           command: e => e.runCommand(CMD_PREVIEW),
-          className: 'fas fa-eye',
+          className: ICON_CLASS_PREVIEW,
           attributes: { title: 'Preview' },
         },
         {
           id: CMD_FULLSCREEN,
           command: CMD_FULLSCREEN,
           context: CMD_FULLSCREEN,
-          className: 'fas fa-expand-alt',
+          className: ICON_CLASS_FULLSCREEN,
           attributes: { title: 'Fullscreen' },
         },
         {
           id: CMD_UNDO,
           command: e => e.runCommand(CMD_CORE_UNDO),
-          className: 'fas fa-undo',
+          className: ICON_CLASS_UNDO,
           attributes: { title: 'Undo' },
         },
         {
           id: CMD_REDO,
           command: e => e.runCommand(CMD_CORE_REDO),
-          className: 'fas fa-redo',
+          className: ICON_CLASS_REDO,
           attributes: { title: 'Redo' },
-        },
-        {
-          id: CMD_HTML_CODE_EDITOR,
-          command: CMD_HTML_CODE_EDITOR,
-          className: 'fas fa-edit',
-          attributes: { title: 'Edit HTML' },
         },
         {
           id: CMD_CANVAS_CLEAR,
           command: e => e.runCommand(CMD_CANVAS_CLEAR),
-          className: 'fas fa-trash',
+          className: ICON_CLASS_CANVAS_CLEAR,
           attributes: { title: 'Clear Canvas' },
         },
       ],
@@ -103,71 +121,60 @@ export function loadPanels(editor, config) {
     {
       id: PANEL_VIEWS,
       buttons  : [{
-        id: CMD_OPEN_STYLE_MANAGER,
-        command: CMD_OPEN_STYLE_MANAGER,
+        id: CMD_CORE_OPEN_STYLES,
+        command: CMD_CORE_OPEN_STYLES,
         active: 1,
-        className: 'fa fa-paint-brush',
+        attributes: { title: 'Open Styles' },
+        className: ICON_CLASS_OPEN_STYLES,
       },{
-        id: CMD_OPEN_TRAIT_MANAGER,
-        command: CMD_OPEN_TRAIT_MANAGER,
-        className: 'fa fa-cog',
+        id: CMD_CORE_OPEN_TRAITS,
+        command: CMD_CORE_OPEN_TRAITS,
+        attributes: { title: 'Open Traits' },
+        className: ICON_CLASS_OPEN_TRAITS,
       },{
-        id: CMD_OPEN_LAYERS,
-        command: CMD_OPEN_LAYERS,
-        className: 'fa fa-bars',
+        id: CMD_CORE_OPEN_LAYERS,
+        command: CMD_CORE_OPEN_LAYERS,
+        attributes: { title: 'Open Layers' },
+        className: ICON_CLASS_OPEN_LAYERS,
       },{
-        id: CMD_OPEN_BLOCKS,
-        command: CMD_OPEN_BLOCKS,
-        className: 'fa fa-th-large',
-      },
-      {
+        id: CMD_CORE_OPEN_BLOCKS,
+        command: CMD_CORE_OPEN_BLOCKS,
+        attributes: { title: 'Open Blocks' },
+        className: ICON_CLASS_OPEN_BLOCKS,
+      },{
         id: CMD_OPEN_CODE,
         command: CMD_OPEN_CODE,
         attributes: { title: 'Open Code' },
-        className: 'fas fa-code',
+        className: ICON_CLASS_OPEN_CODE,
       }],
     },
   ])
 
   // Add devices buttons
-  const panelDevices = panels.addPanel({ id: PANEL_DEVICES });
+  const panelDevices = panels.addPanel({ id: PANEL_DEVICES })
   panelDevices.get('buttons').add([{
     id: CMD_SET_DEVICE_DESKTOP,
     command: CMD_SET_DEVICE_DESKTOP,
     context: PANEL_DEVICES,
     active: true,
     togglable: 1,
-    className: 'fas fa-desktop',
+    className: ICON_CLASS_DEVICE_DESKTOP,
     attributes: { title: 'Set Device: Desktop' },
   },{
     id: CMD_SET_DEVICE_TABLET,
     command: CMD_SET_DEVICE_TABLET,
     context: PANEL_DEVICES,
     togglable: 1,
-    className: 'fas fa-tablet-alt',
+    className: ICON_CLASS_DEVICE_TABLET,
     attributes: { title: 'Set Device: Tablet' },
   },{
     id: CMD_SET_DEVICE_MOBILE,
     command: CMD_SET_DEVICE_MOBILE,
     context: PANEL_DEVICES,
     togglable: 1,
-    className: 'fas fa-mobile-alt',
+    className: ICON_CLASS_DEVICE_MOBILE,
     attributes: { title: 'Set Device: Mobile (portrait)' },
-  }]);
+  }])
 
-  // Set the Views -> Blocks panel button active
-  const openBlocksBtn = panels.getButton(PANEL_VIEWS, CMD_OPEN_BLOCKS)
-  editor.on(EVENT_LOAD, () => openBlocksBtn && openBlocksBtn.set('active', 1))
 
-  // On component change show the Style Manager
-  config.showStylesOnChange && editor.on(EVENT_COMPONENT_SELECTED, () => {
-    const openStyleManagerBtn = panels.getButton(PANEL_VIEWS, CMD_OPEN_STYLE_MANAGER);
-    const openLayersBtn = panels.getButton(PANEL_VIEWS, CMD_OPEN_LAYERS);
-
-    // Don't switch when the Layer Manager is on or
-    // there is no selected component
-    if ((!openLayersBtn || !openLayersBtn.get('active')) && editor.getSelected()) {
-      openStyleManagerBtn && openStyleManagerBtn.set('active', 1);
-    }
-  });
 }

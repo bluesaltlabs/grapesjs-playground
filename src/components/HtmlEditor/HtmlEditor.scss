@@ -5,8 +5,9 @@
 @import '~bootstrap/scss/bootstrap-reboot.scss';
 @import '../../styles/variables';
 
-@import '~grapesjs/src/styles/scss/gjs_variables';
-@import '~grapesjs/dist/css/grapes.min.css';
+@import '~grapesjs/src/styles/scss/main.scss';
+@import '~grapesjs-component-code-editor/src/styles.scss';
+
 
 // Palette variables
 //$primaryColor: $admin-sidebar-bg;
@@ -15,32 +16,22 @@
 //$quaternaryColor: $cyan;
 //$colorRed: $danger;
 
-//$primaryColor: #3503FF;
-//$secondaryColor: #025BFF;
-//$tertiaryColor: #9902FF;
-//$quaternaryColor: #FFCF00;
-//$colorRed: #FF0013;
-
 //https://colorhunt.co/palette/d4ecdd345b63152d35112031
 $primaryColor: #112031;
 $secondaryColor: #D4ECDD;
 $tertiaryColor: #2938dc;
 $quaternaryColor: #025BFF;
 
-//$tertiaryColor: #3503FF;
-//$quaternaryColor: #025BFF;
-//$colorRed: #FF0013;
-
 /* Class names prefixes */
 $app-prefix: 'gjs-';
 
 /* Override GrapesJS theme styles */
 $colorsAll:
-                (one, $primaryColor),
-                (two, $secondaryColor),
-                (three, $tertiaryColor),
-                (four, $quaternaryColor),
-                (danger, $colorRed)
+  (one, $primaryColor),
+  (two, $secondaryColor),
+  (three, $tertiaryColor),
+  (four, $quaternaryColor),
+  (danger, $colorRed)
 ;
 
 .#{$app-prefix} {

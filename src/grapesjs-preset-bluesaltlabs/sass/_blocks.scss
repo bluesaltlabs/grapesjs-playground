@@ -1,0 +1,50 @@
+@import '~grapesjs/src/styles/scss/gjs_variables';
+@import 'variables';
+
+//*************************************/
+/* Blocks                             */
+/**************************************/
+
+.#{$app-prefix}block {
+  height: 90px;
+
+  .#{$app-prefix}block-label {
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+
+    .#{$app-prefix}block__icon {
+      flex-grow: 1;
+      text-align: center;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      //margin-bottom: 0.5rem;
+
+      i.fas,
+      i.far { font-size: 2.5rem; }
+      svg { height: 100%; width: auto; max-width: 100%; } /* todo */
+
+
+      .#{$app-prefix}block__icon_letter {
+        //-webkit-mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
+
+        display: block;
+        position: absolute;
+        top: -12px; right: 0; bottom: 0; left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-family: "Roboto", Arial, -apple-system, BlinkMacSystemFont, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 8em;
+        opacity: 66%;
+      }
+    }
+
+    .#{$app-prefix}block__label {
+      text-align: center;
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import '~grapesjs/src/styles/scss/gjs_variables';
+@import 'variables';
+
+//*************************************/
+/* Panels                             */
+/**************************************/
+
+.#{$pn-prefix} {
+  &panel {
+
+  }
+
+  &commands {
+
+    & .#{$pn-prefix}buttons {
+      display: flex;
+      justify-content: center;
+
+      & .#{$pn-prefix}btn {
+        display: block;
+      }
+    }
+  }
+
+  &options {
+
+  }
+
+  &views {
+
+    &-container {
+
+    }
+  }
+
+  &buttons {
+
+  }
+
+  &btn {
+
+  }
+
+  &.#{$pn-prefix}active {
+
+  }
+
+  svg {
+
+  }
+}

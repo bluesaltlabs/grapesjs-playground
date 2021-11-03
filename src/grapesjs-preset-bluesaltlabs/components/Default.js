@@ -3,10 +3,6 @@ import {
   COMPONENT_DEFAULT,
 } from '../constants'
 
-//import {
-//  capitalize,
-//} from '@helpers'
-
 // todo: move and rename this
 const contexts = [
   'primary',
