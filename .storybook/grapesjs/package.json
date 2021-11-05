@@ -1,0 +1,55 @@
+{
+  "name": "@storybook/grapejs",
+  "version": "6.3.12",
+  "description": "Storybook for GrapesJS: View GrapesJS Blocks in isolation with Hot Reloading.",
+  "private": true,
+  "keywords": [
+    "storybook",
+    "grapesjs"
+  ],
+  "license": "MIT",
+  "main": "dist/cjs/client/index.js",
+  "module": "dist/esm/client/index.js",
+  "types": "dist/ts3.9/client/index.d.ts",
+  "typesVersions": {
+    "<3.8": {
+      "*": [
+        "dist/ts3.4/*"
+      ]
+    }
+  },
+  "bin": {
+    "build-storybook": "./bin/build.js",
+    "start-storybook": "./bin/index.js",
+    "storybook-server": "./bin/index.js"
+  },
+  "files": [
+    "bin/**/*",
+    "dist/**/*",
+    "README.md",
+    "*.js",
+    "*.d.ts"
+  ],
+
+  "dependencies": {
+    "@storybook/addons": "6.3.12",
+    "@storybook/client-api": "6.3.12",
+    "@storybook/core": "6.3.12",
+    "@storybook/core-common": "6.3.12",
+    "@types/webpack-env": "^1.16.0",
+    "core-js": "^3.8.2",
+    "global": "^4.4.0",
+    "html-loader": "^1.3.2",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "read-pkg-up": "^7.0.1",
+    "regenerator-runtime": "^0.13.7",
+    "ts-dedent": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@babel/core": "*"
+  },
+  "engines": {
+    "node": ">=10.13.0"
+  }
+}
